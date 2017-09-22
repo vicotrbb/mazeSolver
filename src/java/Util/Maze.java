@@ -91,7 +91,7 @@ public class Maze {
         if (mazeConcept[X][Y] && true) {
             
         }
- 
+       return true;
     }
 }
 
