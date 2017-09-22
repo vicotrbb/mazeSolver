@@ -66,32 +66,43 @@ public class Maze {
         }
     }
 
+    private ArrayList<int[][]> path = new ArrayList();
+
     public void resolveLabirinto() {
         int X = startX;
         int Y = startY;
-        ArrayList<int[][]> path = new ArrayList();
         converteLabirinto();
-        
+        if (andaLabirinto(X, Y)){
+
+
+        }
     }
-    
-    public boolean andaLabirinto(int X, int Y){
+
+    public boolean andaLabirinto(int X, int Y) {
+        if (X == endX && X == endY){
+            return true;
+        }
         //norte
-        if (mazeConcept[X][Y] && true) {
-            
+        if (mazeConcept[X + 1][Y] && true) {
+            path.add(new int[X + 1][Y]);
+            andaLabirinto(X + 1, Y );
         }
         //sul
-        if (mazeConcept[X][Y] && true) {
-            
+        if (mazeConcept[X - 1][Y] && true) {
+            path.add(new int[X - 1][Y]);
+            andaLabirinto(X - 1, Y );
         }
         //leste
-        if (mazeConcept[X][Y] && true) {
-            
+        if (mazeConcept[X][Y + 1] && true) {
+            path.add(new int[X][Y + 1]);
+            andaLabirinto(X, Y + 1);
         }
         //oeste
-        if (mazeConcept[X][Y] && true) {
-            
+        if (mazeConcept[X][Y - 1] && true) {
+            path.add(new int[X][Y - 1]);
+            andaLabirinto(X, Y - 1);
         }
-       return true;
+        return false;
     }
 }
 
